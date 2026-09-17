@@ -1,11 +1,10 @@
 # Cloud Computing Homework — Docker, Docker Swarm, Docker Hub, AWS EC2
 
-**Name:** _YOUR NAME_
+**Name:** Seng Kimoun
 **Course:** Cloud Computing — Docker Compose & Docker Swarm
-**Docker Hub repository:** https://hub.docker.com/r/YOUR_DOCKERHUB_USERNAME/cc-homework-app
+**Docker Hub repository:** https://hub.docker.com/repositories/unixquantum/myhwpython
 
-> Replace every `YOUR_DOCKERHUB_USERNAME` in this repo (README, `docker-compose.yml`,
-> `stack.yml`) with your real Docker Hub username before building.
+
 
 ---
 
@@ -110,16 +109,16 @@ docker swarm leave --force
 docker login
 
 # v1
-docker build -t YOUR_DOCKERHUB_USERNAME/cc-homework-app:v1 ./app
-docker push YOUR_DOCKERHUB_USERNAME/cc-homework-app:v1
+docker build -t unixquantum/myhwpython:v1 ./app
+docker push unixquantum/myhwpython:v1
 ```
 
 The repository was set to **Public** in Docker Hub → repository → *Settings* →
 *Visibility*, then verified with a clean pull:
 
 ```bash
-docker rmi YOUR_DOCKERHUB_USERNAME/cc-homework-app:v1
-docker pull YOUR_DOCKERHUB_USERNAME/cc-homework-app:v1   # succeeds with no login
+docker rmi unixquantum/myhwpython:v1
+docker pull unixquantum/myhwpython:v1   # succeeds with no login
 ```
 
 **v2** — the change made for the second version was: _describe your change, e.g.
@@ -127,8 +126,8 @@ docker pull YOUR_DOCKERHUB_USERNAME/cc-homework-app:v1   # succeeds with no logi
 
 ```bash
 # after editing the app (or the APP_VERSION/PAGE_TITLE defaults in app.py)
-docker build -t YOUR_DOCKERHUB_USERNAME/cc-homework-app:v2 ./app
-docker push YOUR_DOCKERHUB_USERNAME/cc-homework-app:v2
+docker build -t unixquantum/myhwpython:v2 ./app
+docker push unixquantum/myhwpython:v2
 ```
 
 The repository's *Tags* page now lists both `v1` and `v2`.
@@ -163,11 +162,11 @@ docker network create appnet
 docker run -d --name redis --network appnet \
   redis:7-alpine redis-server --appendonly yes
 
-docker pull YOUR_DOCKERHUB_USERNAME/cc-homework-app:v2
+docker pull unixquantum/myhwpython:v2
 docker run -d --name web --network appnet -p 80:5000 \
   -e REDIS_HOST=redis -e APP_VERSION=v2 \
   -e PAGE_TITLE="Cloud Computing Homework - v2 (EC2)" \
-  YOUR_DOCKERHUB_USERNAME/cc-homework-app:v2
+  unixquantum/myhwpython:v2
 
 docker ps
 ```
