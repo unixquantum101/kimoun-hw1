@@ -7,7 +7,7 @@ services:
   web:
     build: ./app
     # Tagged with the Docker Hub name now, so Parts 2-4 reuse the same image.
-    image: YOUR_DOCKERHUB_USERNAME/cc-homework-app:v1
+    image: unixquantum/myhwpython:v1
     container_name: cc_web
     ports:
       - "8080:5000"

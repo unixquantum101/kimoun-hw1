@@ -10,7 +10,7 @@
 
 services:
   web:
-    image: YOUR_DOCKERHUB_USERNAME/cc-homework-app:v1
+    image: unixquantum/myhwpython:v1
     ports:
       - "8080:5000"
     environment:

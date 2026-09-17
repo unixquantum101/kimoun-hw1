@@ -1,14 +1,14 @@
 # Submission Checklist — Docker & Docker Swarm Homework
 
 **Name:** _YOUR NAME_  **Date:** _____________
-**Docker Hub repository:** https://hub.docker.com/r/YOUR_DOCKERHUB_USERNAME/cc-homework-app
+**Docker Hub repository:** https://hub.docker.com/r/unixquantum/myhwpython
 **EC2 public IP used for the demo:** _____________
 
 > Only tick a box after you have actually performed and verified that step.
 
 | ✔ | Item | Evidence |
 |---|---|---|
-| ☐ | `docker-compose.yml` defines two correctly connected services with a named volume | `docker-compose.yml`, screenshot (a) |
+| ☑ | `docker-compose.yml` defines two correctly connected services with a named volume | `docker-compose.yml`, screenshot (a) |
 | ☐ | Application was confirmed reachable locally with `docker compose up` | screenshot (a) |
 | ☐ | The application was deployed as a Swarm stack with `docker stack deploy` | `stack.yml`, `docker stack services` output |
 | ☐ | The application service was scaled to 3 replicas, confirmed with `docker service ps` | screenshot (b) |
