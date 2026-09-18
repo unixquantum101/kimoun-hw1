@@ -6,13 +6,12 @@
 services:
   web:
     build: ./app
-    # Tagged with the Docker Hub name now, so Parts 2-4 reuse the same image.
     image: unixquantum/myhwpython:v1
     container_name: cc_web
     ports:
       - "8080:5000"
     environment:
-      REDIS_HOST: redis          # resolved by Docker's DNS on appnet
+      REDIS_HOST: redis
       REDIS_PORT: "6379"
       APP_VERSION: "v1"
       PAGE_TITLE: "Cloud Computing Homework - v1"
