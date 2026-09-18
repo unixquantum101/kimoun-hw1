@@ -48,7 +48,6 @@ docker compose ps
 
 Open <http://localhost:8080>. Refresh a few times — the counter increases.
  - screenshots/path-1/path1-browser-port-8080.png
- - screenshots/path-1/part1-aws-firewall-rule.png
 
 **Proving the named volume persists data:**
 ```bash
@@ -77,7 +76,7 @@ docker stack services ccstack
 docker service ls
 docker service ps ccstack_web
 ```
-- screenshots/path-2/path-2-run-docker-swarm-1replica.png
+- screenshots/path-2/path-2-first-run-docker-swarm-1replica.png
 
 The application is still reachable at <http://localhost:8080>. 
 - screenshots/path-2/path-2-first-browser-stack.png
@@ -88,14 +87,14 @@ docker service scale ccstack_web=3
 docker service ps ccstack_web
 docker stack services ccstack             # 3 tasks, all "Running"
 ```
-- screenshots/path-2/path-2-scal-to 3-replicas.png
+- screenshots/path-2/path-2-scal-3-and-delete1con.png
 
 **Self-healing:** kill one task's container directly and watch Swarm replace it
 with no further command from me:
 
 ```bash
 docker ps --filter name=ccstack_web       # pick one container ID
-docker rm -f 870f9c4a6dc6
+docker rm -f 750e360c39bb
 docker service ps ccstack_web             # killed task = "Failed"/"Shutdown",
                                           # a new task is already "Running"
 ```
