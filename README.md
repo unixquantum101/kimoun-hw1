@@ -112,6 +112,8 @@ docker login
 docker build -t unixquantum/myhwpython:v1.0.0 ./app
 docker push unixquantum/myhwpython:v1.0.0
 ```
+- screenshots/path-3/path-3-docker-login-and-build-imagev1.png
+- screenshots/path-3/path-3-docker-push-v1.png
 
 The repository was set to **Public** in Docker Hub → repository → *Settings* →
 *Visibility*, then verified with a clean pull:
@@ -120,6 +122,7 @@ The repository was set to **Public** in Docker Hub → repository → *Settings*
 docker rmi unixquantum/myhwpython:v1.0.0
 docker pull unixquantum/myhwpython:v1.0.0   # succeeds with no login
 ```
+- screenshots/path-3/path-3-pull-image-from-dockerhub.png
 
 **v2.0.0** — the change made for the second version was: _describe your change, e.g.
 "the page title and the `X-App-Version` response header now read v2.0.0"_.
@@ -129,7 +132,8 @@ docker pull unixquantum/myhwpython:v1.0.0   # succeeds with no login
 docker build -t unixquantum/myhwpython:v2.0.0 ./app
 docker push unixquantum/myhwpython:v2.0.0
 ```
-
+- screenshots/path-3/path-3-docker-build-and-push-v2.png
+- screenshots/path-3/path-3-images-all-2v-on-docker-hub.png
 The repository's *Tags* page now lists both `v1.0.0` and `v2.0.0`.
 
 ---
