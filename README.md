@@ -39,21 +39,24 @@ Files: https://hub.docker.com/repositories/unixquantum/myhwpython
 ---
 
 ## 2. Part 1 — Running locally with Docker Compose
-- screenshots/path-1/path1-1-docker-compose-up.png
+
 ```bash
 docker compose up -d --build
 docker compose ps
 ```
+- screenshots/path-1/path1-1-docker-compose-up.png
 
 Open <http://localhost:8080>. Refresh a few times — the counter increases.
+ - screenshots/path-1/path1-browser-port-8080.png
+ - screenshots/path-1/part1-aws-firewall-rule.png
 
 **Proving the named volume persists data:**
-- screenshots/path-1/path1-2-docker-compose-down-and-up-again.png
 ```bash
 docker compose down          # containers removed, named volume kept
 docker compose up -d
 ```
-- screenshots/path-1/part1-aws-firewall-rule.png & path1-browser-port-8080.png
+- screenshots/path-1/path1-2-docker-compose-down-and-up-again.png
+
 
 Reload the page: the counter continues from where it left off instead of
 restarting at 1. (`docker compose down -v` would delete the volume and reset it.)
@@ -65,7 +68,6 @@ embedded DNS resolves to the Redis container.
 ---
 
 ## 3. Part 2 — Running as a Docker Swarm stack
-
 ```bash
 docker compose down                       # free port 8080 first
 docker swarm init                         # single-node Swarm
@@ -75,32 +77,30 @@ docker stack services ccstack
 docker service ls
 docker service ps ccstack_web
 ```
+- screenshots/path-2/path-2-run-docker-swarm-1replica.png
 
-The application is still reachable at <http://localhost:8080>.
+The application is still reachable at <http://localhost:8080>. 
+- screenshots/path-2/path-2-first-browser-stack.png
 
 **Scale to 3 replicas:**
-
 ```bash
 docker service scale ccstack_web=3
-docker service ps ccstack_web             # 3 tasks, all "Running"
+docker service ps ccstack_web
+docker stack services ccstack             # 3 tasks, all "Running"
 ```
+- screenshots/path-2/path-2-scal-to 3-replicas.png
 
 **Self-healing:** kill one task's container directly and watch Swarm replace it
 with no further command from me:
 
 ```bash
 docker ps --filter name=ccstack_web       # pick one container ID
-docker rm -f <container-id>
+docker rm -f 870f9c4a6dc6
 docker service ps ccstack_web             # killed task = "Failed"/"Shutdown",
                                           # a new task is already "Running"
 ```
-
-Tear down when finished:
-
-```bash
-docker stack rm ccstack
-docker swarm leave --force
-```
+- screenshots/path-2/path-2-scal-3-and-delete1con.png
+- screenshots/path-2/path-2-second-browser-stack.png.png
 
 ---
 
