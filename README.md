@@ -22,7 +22,7 @@ that served the request (useful for seeing Swarm load-balance across replicas).
 The counter is stored in Redis with `appendonly yes`, and Redis's `/data`
 directory is a **named volume** (`redis_data`), so the count survives restarts.
 
-Files:
+Files: https://hub.docker.com/repositories/unixquantum/myhwpython
 
 ```
 .
