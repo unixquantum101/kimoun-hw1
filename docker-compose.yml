@@ -6,15 +6,15 @@
 services:
   web:
     build: ./app
-    image: unixquantum/myhwpython:v1
+    image: unixquantum/myhwpython:v1.0.0
     container_name: cc_web
     ports:
       - "8080:5000"
     environment:
       REDIS_HOST: redis
       REDIS_PORT: "6379"
-      APP_VERSION: "v1"
-      PAGE_TITLE: "Cloud Computing Homework - v1"
+      APP_VERSION: "v1.0.0"
+      PAGE_TITLE: "Cloud Computing Homework - v1.0.0"
     depends_on:
       - redis
     networks:
@@ -24,8 +24,6 @@ services:
   redis:
     image: redis:7-alpine
     container_name: cc_redis
-    # appendonly yes -> Redis writes every change to disk, so the counter
-    # really does survive a restart (this is what the named volume stores).
     command: ["redis-server", "--appendonly", "yes"]
     volumes:
       - redis_data:/data
@@ -34,8 +32,8 @@ services:
     restart: unless-stopped
 
 volumes:
-  redis_data:                    # named volume (Part 1, step 2)
+  redis_data:
 
 networks:
-  appnet:                        # custom network (Part 1, step 3)
+  appnet:
     driver: bridge
