@@ -1,6 +1,0 @@
-Save your four screenshots in this folder:
-  a-compose-local.png      browser at localhost:8080 + docker compose ps
-  b-swarm-3-replicas.png   docker service ps ccstack_web showing 3 running tasks
-  c-dockerhub-tags.png     Docker Hub repo page showing v1 and v2
-  d-ec2-browser.png        browser at http://<EC2-PUBLIC-IP> (URL bar visible!)
-Then delete this file.

@@ -1,11 +1,4 @@
 # Part 2 - Docker Swarm stack
-# Same application, deployed as a stack instead of with `docker compose`.
-# Differences from docker-compose.yml:
-#   - no `build:` key (Swarm deploys images, it does not build them)
-#   - `deploy:` keys for replicas, resource limits and restart policy
-#   - the network uses the `overlay` driver
-# Deploy with:  docker stack deploy -c stack.yml ccstack
-
 services:
   web:
     image: unixquantum/myhwpython:v1.0.0
