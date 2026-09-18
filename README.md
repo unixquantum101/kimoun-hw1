@@ -121,16 +121,16 @@ docker rmi unixquantum/myhwpython:v1.0.0
 docker pull unixquantum/myhwpython:v1.0.0   # succeeds with no login
 ```
 
-**v2** — the change made for the second version was: _describe your change, e.g.
-"the page title and the `X-App-Version` response header now read v2"_.
+**v2.0.0** — the change made for the second version was: _describe your change, e.g.
+"the page title and the `X-App-Version` response header now read v2.0.0"_.
 
 ```bash
 # after editing the app (or the APP_VERSION/PAGE_TITLE defaults in app.py)
-docker build -t unixquantum/myhwpython:v2 ./app
-docker push unixquantum/myhwpython:v2
+docker build -t unixquantum/myhwpython:v2.0.0 ./app
+docker push unixquantum/myhwpython:v2.0.0
 ```
 
-The repository's *Tags* page now lists both `v1.0.0` and `v2`.
+The repository's *Tags* page now lists both `v1.0.0` and `v2.0.0`.
 
 ---
 
@@ -162,11 +162,11 @@ docker network create appnet
 docker run -d --name redis --network appnet \
   redis:7-alpine redis-server --appendonly yes
 
-docker pull unixquantum/myhwpython:v2
+docker pull unixquantum/myhwpython:v2.0.0
 docker run -d --name web --network appnet -p 80:5000 \
-  -e REDIS_HOST=redis -e APP_VERSION=v2 \
-  -e PAGE_TITLE="Cloud Computing Homework - v2 (EC2)" \
-  unixquantum/myhwpython:v2
+  -e REDIS_HOST=redis -e APP_VERSION=v2.0.0 \
+  -e PAGE_TITLE="Cloud Computing Homework - v2.0.0 (EC2)" \
+  unixquantum/myhwpython:v2.0.0
 
 docker ps
 ```
@@ -188,7 +188,7 @@ does not accrue charges.
 |---|---|
 | `screenshots/a-compose-local.png` | The application in a browser at `localhost:8080`, plus `docker compose ps` |
 | `screenshots/b-swarm-3-replicas.png` | `docker service ps ccstack_web` with 3 running replicas |
-| `screenshots/c-dockerhub-tags.png` | The Docker Hub repository page showing `v1.0.0` and `v2` |
+| `screenshots/c-dockerhub-tags.png` | The Docker Hub repository page showing `v1.0.0` and `v2.0.0` |
 | `screenshots/d-ec2-browser.png` | The application in a browser at the EC2 public IP |
 
 ---
