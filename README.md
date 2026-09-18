@@ -108,17 +108,17 @@ docker service ps ccstack_web             # killed task = "Failed"/"Shutdown",
 ```bash
 docker login
 
-# v1
-docker build -t unixquantum/myhwpython:v1 ./app
-docker push unixquantum/myhwpython:v1
+# v1.0.0
+docker build -t unixquantum/myhwpython:v1.0.0 ./app
+docker push unixquantum/myhwpython:v1.0.0
 ```
 
 The repository was set to **Public** in Docker Hub → repository → *Settings* →
 *Visibility*, then verified with a clean pull:
 
 ```bash
-docker rmi unixquantum/myhwpython:v1
-docker pull unixquantum/myhwpython:v1   # succeeds with no login
+docker rmi unixquantum/myhwpython:v1.0.0
+docker pull unixquantum/myhwpython:v1.0.0   # succeeds with no login
 ```
 
 **v2** — the change made for the second version was: _describe your change, e.g.
@@ -130,7 +130,7 @@ docker build -t unixquantum/myhwpython:v2 ./app
 docker push unixquantum/myhwpython:v2
 ```
 
-The repository's *Tags* page now lists both `v1` and `v2`.
+The repository's *Tags* page now lists both `v1.0.0` and `v2`.
 
 ---
 
@@ -188,7 +188,7 @@ does not accrue charges.
 |---|---|
 | `screenshots/a-compose-local.png` | The application in a browser at `localhost:8080`, plus `docker compose ps` |
 | `screenshots/b-swarm-3-replicas.png` | `docker service ps ccstack_web` with 3 running replicas |
-| `screenshots/c-dockerhub-tags.png` | The Docker Hub repository page showing `v1` and `v2` |
+| `screenshots/c-dockerhub-tags.png` | The Docker Hub repository page showing `v1.0.0` and `v2` |
 | `screenshots/d-ec2-browser.png` | The application in a browser at the EC2 public IP |
 
 ---
