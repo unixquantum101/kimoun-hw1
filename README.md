@@ -29,7 +29,7 @@ Files: https://github.com/unixquantum101/kimoun-hw1
 .
 ├── app/
 │   ├── app.py            # Flask application
-│   ├── Dockerfile        # production image (non-root user, gunicorn, healthcheck)
+│   ├── Dockerfile
 │   ├── requirements.txt
 │   └── .dockerignore
 ├── docker-compose.yml    # Part 1
@@ -52,7 +52,7 @@ Open <http://localhost:8080>. Refresh a few times — the counter increases.
 
 **Proving the named volume persists data:**
 ```bash
-docker compose down          # containers removed, named volume kept
+docker compose down
 docker compose up -d
 ```
 - screenshots/path-1/path1-2-docker-compose-down-and-up-again.png
@@ -69,8 +69,8 @@ embedded DNS resolves to the Redis container.
 
 ## 3. Part 2 — Running as a Docker Swarm stack
 ```bash
-docker compose down                       # free port 8080 first
-docker swarm init                         # single-node Swarm
+docker compose down
+docker swarm init
 docker stack deploy -c stack.yml ccstack
 
 docker stack services ccstack
@@ -94,7 +94,7 @@ docker stack services ccstack             # 3 tasks, all "Running"
 with no further command from me:
 
 ```bash
-docker ps --filter name=ccstack_web       # pick one container ID
+docker ps --filter name=ccstack_web       # pick one container ID 750e360c39bb
 docker rm -f 750e360c39bb
 docker service ps ccstack_web             # killed task = "Failed"/"Shutdown",
                                           # a new task is already "Running"
@@ -121,7 +121,7 @@ The repository was set to **Public** in Docker Hub → repository → *Settings*
 
 ```bash
 docker rmi unixquantum/myhwpython:v1.0.0
-docker pull unixquantum/myhwpython:v1.0.0   # succeeds with no login
+docker pull unixquantum/myhwpython:v1.0.0
 ```
 - screenshots/path-3/path-3-pull-image-from-dockerhub.png
 
