@@ -39,7 +39,7 @@ Files: https://hub.docker.com/repositories/unixquantum/myhwpython
 ---
 
 ## 2. Part 1 — Running locally with Docker Compose
-
+- screenshots/path-1/path1-1-docker-compose-up.png
 ```bash
 docker compose up -d --build
 docker compose ps
@@ -48,11 +48,12 @@ docker compose ps
 Open <http://localhost:8080>. Refresh a few times — the counter increases.
 
 **Proving the named volume persists data:**
-
+- screenshots/path-1/path1-2-docker-compose-down-and-up-again.png
 ```bash
 docker compose down          # containers removed, named volume kept
 docker compose up -d
 ```
+- screenshots/path-1/part1-aws-firewall-rule.png & path1-browser-port-8080.png
 
 Reload the page: the counter continues from where it left off instead of
 restarting at 1. (`docker compose down -v` would delete the volume and reset it.)
