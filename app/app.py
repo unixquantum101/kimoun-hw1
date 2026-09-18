@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 REDIS_HOST = os.environ.get("REDIS_HOST", "redis")
 REDIS_PORT = int(os.environ.get("REDIS_PORT", 6379))
-PAGE_TITLE = os.environ.get("PAGE_TITLE", "Cloud Computing Homework - v1")
+PAGE_TITLE = os.environ.get("PAGE_TITLE", "Cloud Computing Homework - v2")
 APP_VERSION = os.environ.get("APP_VERSION", "v1")
 
 cache = redis.Redis(host=REDIS_HOST, port=REDIS_PORT, socket_connect_timeout=2)
